@@ -8,7 +8,7 @@ Organizations:
     - &OrdererOrg
         Name: OrdererOrg
         ID: OrdererMSP
-        MSPDir: crypto-config/ordererOrganizations/egg.nl/msp
+        MSPDir: crypto-config/ordererOrganizations//msp
         Policies:
             Readers:
                 Type: Signature
@@ -23,7 +23,7 @@ Organizations:
     - &Org1
         Name: Org1MSP
         ID: Org1MSP
-        MSPDir: crypto-config/peerOrganizations/org1.egg.nl/msp
+        MSPDir: crypto-config/peerOrganizations/org1.arch.nl/msp
         Policies:
             Readers:
                 Type: Signature
@@ -36,13 +36,13 @@ Organizations:
                 Rule: "OR('Org1MSP.admin')"
 
         AnchorPeers:
-            - Host: peer0.org1.egg.nl
+            - Host: peer0.org1.arch.nl
               Port: 7051
 
     - &Org2
         Name: Org2MSP
         ID: Org2MSP
-        MSPDir: crypto-config/peerOrganizations/org2.egg.nl/msp
+        MSPDir: crypto-config/peerOrganizations/org2.arch.nl/msp
         Policies:
             Readers:
                 Type: Signature
@@ -55,13 +55,13 @@ Organizations:
                 Rule: "OR('Org2MSP.admin')"
 
         AnchorPeers:
-            - Host: peer0.org2.egg.nl
+            - Host: peer0.org2.arch.nl
               Port: 9051
 
     - &Org3
         Name: Org3MSP
         ID: Org3MSP
-        MSPDir: crypto-config/peerOrganizations/org3.egg.nl/msp
+        MSPDir: crypto-config/peerOrganizations/org3.arch.nl/msp
         Policies:
             Readers:
                 Type: Signature
@@ -74,8 +74,8 @@ Organizations:
                 Rule: "OR('Org3MSP.admin')"
 
         AnchorPeers:
-            - Host: peer0.org3.egg.nl
-            # Port: 9051
+            - Host: peer0.org3.arch.nl
+            - Port: 8051
 
 Capabilities:
     Channel: &ChannelCapabilities
@@ -112,7 +112,7 @@ Application: &ApplicationDefaults
 Orderer: &OrdererDefaults
     OrdererType: solo
     Addresses:
-        - orderer.egg.nl:7050
+        - orderer.arch.nl:7050
 
     BatchTimeout: 2s
 
@@ -201,7 +201,7 @@ Channel: &ChannelDefaults
 ################################################################################
 Profiles:
 
-    TwoOrgsOrdererGenesis:
+    ThreeOrgsOrdererGenesis:
         <<: *ChannelDefaults
         Orderer:
             <<: *OrdererDefaults
@@ -210,14 +210,14 @@ Profiles:
             Capabilities:
                 <<: *OrdererCapabilities
         Consortiums:
-            EggConsortium:
+            ArchConsortium:
                 Organizations:
                     - *Org1
                     - *Org2
                     - *Org3
 
-    TwoOrgsChannel:
-        Consortium: EggConsortium
+    ThreeOrgsChannel:
+        Consortium: ArchConsortium
         <<: *ChannelDefaults
         Application:
             <<: *ApplicationDefaults

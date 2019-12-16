@@ -1,13 +1,13 @@
 OrdererOrgs:
   - Name: Orderer
-    Domain: egg.nl
+    Domain: arch.nl
     EnableNodeOUs: true
     Specs:
       - Hostname: orderer
 
 PeerOrgs:
   - Name: Org1
-    Domain: org1.egg.nl
+    Domain: org1.arch.nl
     EnableNodeOUs: true
     Template:
       Count: 2
@@ -15,7 +15,7 @@ PeerOrgs:
       Count: 1
 
   - Name: Org2
-    Domain: org2.egg.nl
+    Domain: org2.arch.nl
     EnableNodeOUs: true
     Template:
       Count: 2
@@ -23,7 +23,7 @@ PeerOrgs:
       Count: 1
 
   - Name: Org3
-    Domain: org3.egg.nl
+    Domain: org3.arch.nl
     EnableNodeOUs: true
     Template:
       Count: 2
