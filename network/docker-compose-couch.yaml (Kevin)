@@ -6,7 +6,7 @@
 version: '2'
 
 networks:
-  eggnet:
+  archnet:
 
 services:
   couchdb0:
@@ -22,9 +22,9 @@ services:
     ports:
       - "5984:5984"
     networks:
-      - eggnet
+      - archnet
 
-  peer0.org1.egg.nl:
+  peer0.org1.arch.nl:
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb0:5984
@@ -49,9 +49,9 @@ services:
     ports:
       - "6984:5984"
     networks:
-      - eggnet
+      - archnet
 
-  peer1.org1.egg.nl:
+  peer1.org1.arch.nl:
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1:5984
@@ -76,9 +76,9 @@ services:
     ports:
       - "7984:5984"
     networks:
-      - eggnet
+      - archnet
 
-  peer0.org2.egg.nl:
+  peer0.org2.arch.nl:
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb2:5984
@@ -103,9 +103,9 @@ services:
     ports:
       - "8984:5984"
     networks:
-      - eggnet
+      - archnet
 
-  peer1.org2.egg.nl:
+  peer1.org2.arch.nl:
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb3:5984
@@ -116,7 +116,6 @@ services:
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
     depends_on:
       - couchdb3
-      #ik snap niet waarom hier niets staat over een port. Heb ik dit wel nodig voor couchdb3?
 
   couchdb4:
     container_name: couchdb4
@@ -131,9 +130,9 @@ services:
     ports:
       - "5984:5984"         #geen idee welke ports
     networks:
-      - eggnet
+      - archnet
 
-  peer0.org3.egg.nl:
+  peer0.org3.arch.nl:
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb0:5984
@@ -158,9 +157,9 @@ services:
     ports:
       - "6984:5984"
     networks:
-      - eggnet
+      - archnet
 
-  peer1.org3.egg.nl:
+  peer1.org3.arch.nl:
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1:5984
@@ -185,4 +184,4 @@ services:
     ports:
       - "7984:5984"
     networks:
-      - eggnet
+      - archnet
