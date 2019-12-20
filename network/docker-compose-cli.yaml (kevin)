@@ -6,75 +6,75 @@
 version: '2'
 
 volumes:
-  orderer.egg.nl:
-  peer0.org1.egg.nl:
-  peer1.org1.egg.nl:
-  peer0.org2.egg.nl:
-  peer1.org2.egg.nl:
-  peer0.org3.egg.nl:
-  peer1.org3.egg.nl:
+  orderer.arch.nl:
+  peer0.org1.arch.nl:
+  peer1.org1.arch.nl:
+  peer0.org2.arch.nl:
+  peer1.org2.arch.nl:
+  peer0.org3.arch.nl:
+  peer1.org3.arch.nl:
   
 
 networks:
-  eggnet:
+  Archnet:
 
 services:
 
-  orderer.egg.nl:
+  orderer.arch.nl:
     extends:
       file:   base/docker-compose-base.yaml
-      service: orderer.egg.nl
-    container_name: orderer.egg.nl
+      service: orderer.arch.nl
+    container_name: orderer.arch.nl
     networks:
-      - eggnet
+      - archnet
 
-  peer0.org1.egg.nl:
-    container_name: peer0.org1.egg.nl
+  peer0.org1.arch.nl:
+    container_name: peer0.org1.arch.nl
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer0.org1.egg.nl
+      service: peer0.org1.arch.nl
     networks:
-      - eggnet
+      - archnet
 
-  peer1.org1.egg.nl:
-    container_name: peer1.org1.egg.nl
+  peer1.org1.arch.nl:
+    container_name: peer1.org1.arch.nl
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer1.org1.egg.nl
+      service: peer1.org1.arch.nl
     networks:
-      - eggnet
+      - archnet
 
-  peer0.org2.egg.nl:
-    container_name: peer0.org2.egg.nl
+  peer0.org2.arch.nl:
+    container_name: peer0.org2.arch.nl
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer0.org2.egg.nl
+      service: peer0.org2.arch.nl
     networks:
-      - eggnet
+      - archnet
 
-  peer1.org2.egg.nl:
-    container_name: peer1.org2.egg.nl
+  peer1.org2.arch.nl:
+    container_name: peer1.org2.arch.nl
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer1.org2.egg.nl
+      service: peer1.org2.arch.nl
     networks:
-      - eggnet
+      - archnet
      
-  peer0.org3.egg.nl:
-    container_name: peer0.org3.egg.nl
+  peer0.org3.arch.nl:
+    container_name: peer0.org3.arch.nl
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer0.org3.egg.nl
+      service: peer0.org3.arch.nl
     networks:
-      - eggnet
+      - archnet
    
-     peer1.org3.egg.nl:
-    container_name: peer1.org3.egg.nl
+     peer1.org3.arch.nl:
+    container_name: peer1.org3.arch.nl
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer1.org3.egg.nl
+      service: peer1.org3.arch.nl
     networks:
-      - eggnet
+      - archnet
       
 
   cli:
@@ -88,9 +88,9 @@ services:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - FABRIC_LOGGING_SPEC=INFO
       - CORE_PEER_ID=cli
-      - CORE_PEER_ADDRESS=peer0.org1.egg.nl:7051
+      - CORE_PEER_ADDRESS=peer0.org1.arch.nl:7051
       - CORE_PEER_LOCALMSPID=Org1MSP
-      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.egg.nl/users/Admin@org1.egg.nl/msp
+      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.arch.nl/users/Admin@org1.arch.nl/msp
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
@@ -100,12 +100,12 @@ services:
         - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
         - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
     depends_on:
-      - orderer.egg.nl
-      - peer0.org1.egg.nl
-      - peer1.org1.egg.nl
-      - peer0.org2.egg.nl
-      - peer1.org2.egg.nl
-      - peer0.org3.egg.nl
-      - peer1.org3.egg.nl
+      - orderer.arch.nl
+      - peer0.org1.arch.nl
+      - peer1.org1.arch.nl
+      - peer0.org2.arch.nl
+      - peer1.org2.arch.nl
+      - peer0.org3.arch.nl
+      - peer1.org3.arch.nl
     networks:
-      - eggnet
+      - archnet
