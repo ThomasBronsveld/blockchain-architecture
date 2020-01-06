@@ -1,0 +1,52 @@
+{
+    "name": "arch-network-bc",
+    "version": "1.0.0",
+    "client": {
+        "organization": "bc",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "bc": {
+            "mspid": "bcMSP",
+            "peers": [
+                "peer0.bc.arch.nl",
+                "peer1.bc.arch.nl",
+                "peer2.bc.arch.nl",
+                "peer3.bc.arch.nl",
+                "peer4.bc.arch.nl"
+            ],
+            "certificateAuthorities": [
+                "ca.bc.arch.nl"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.bc.arch.nl": {
+            "url": "grpc://localhost:7051"
+        },
+        "peer1.bc.arch.nl": {
+            "url": "grpc://localhost:8051"
+        },
+        "peer2.bc.arch.nl": {
+            "url": "grpc://localhost:9051"
+        },    
+        "peer3.bc.arch.nl": {
+            "url": "grpc://localhost:10051"
+        },
+        "peer4.bc.arch.nl": {
+            "url": "grpc://localhost:11051"
+        }        
+    },
+    "certificateAuthorities": {
+        "ca.bc.arch.nl": {
+            "url": "http://localhost:7054",
+            "caName": "ca-bc"
+        }
+    }
+}
