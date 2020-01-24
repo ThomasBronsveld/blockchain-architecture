@@ -25,12 +25,18 @@ How participants, assets and transactions are modelled?
 ## Logic:
 - What are the business rules?
 In this case we use music as an example. An artist makes a song. A record label pays money to promote this song. When somebody uses a streaming service to listen, a smart contract is called upon that the streaming service has with the record label. In this contract, the division of costs are mentioned. A certain amount goes to the artist some goes to the label.
+
+To add to this, another organization is added, which is the tax authorities. They also get a small amount of money of every streaming, depending on how much money an artist gets.
+
 - which events are generated?
 * Add/remove/update artist
 * Add/remove song
-* per-played royalties
-* produce music
-* promote music
+* Add streaming service
+* Add record label
+* Per-played royalties
+* Produce music
+* Promote music
+* Money to tax authority
 
 
 ## Integration
