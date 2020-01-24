@@ -31,7 +31,7 @@ In this case we use music as an example. An artist makes a song. A record label 
 
 
 ## Network hosting
-
+What is the chosen hosting strategy?
 
 ## Privacy and security
 
