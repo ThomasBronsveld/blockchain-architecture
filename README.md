@@ -31,8 +31,6 @@ To add to this, another organization is added, which is the tax authorities. The
 The following events are generated:
 * Add/remove/update artist
 * Add/remove song
-* Add streaming service
-* Add record label
 * Per-played royalties
 * Produce music
 * Promote music
