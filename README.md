@@ -5,6 +5,9 @@ Repository for the course blockchain architecture of the Blockchain minor 2019 a
 
 
 ## Architecture Organization
+How many peers and organisations?
+How consensus/endorsement works in your network
+
 
 
 ## How consensus works?
@@ -14,6 +17,7 @@ With a practical Byzantine Fault Tolerenace, the acceptance of transactions is d
 
 
 ## Data and transaction model
+How participants, assets and transactions are modelled?
 
 
 ## Logic:
@@ -28,12 +32,14 @@ In this case we use music as an example. An artist makes a song. A record label 
 
 
 ## Integration
+How the blockchain network interact with external systems (calls and events)?
 
 
 ## Network hosting
 What is the chosen hosting strategy?
 
 ## Privacy and security
+Authentication and Authorisation
 
 
 ## Individual contribution table:
