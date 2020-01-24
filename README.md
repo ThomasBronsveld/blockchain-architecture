@@ -22,14 +22,15 @@ In the diagram below you see the process how an artist earn money from streaming
 ![Image of Data Flow](https://user-images.githubusercontent.com/26054730/73069116-318fe680-3ead-11ea-9087-7f8caf6631e1.png)
 
 In this private permissioned blockchain network consist of three main components; the participants, assets and transactions. 
-Participants: Record Label, Streaming services and Tax Authority
-Assets: The song produced by the record label in collaboration with the artist. 
-Transactions: These actions will change the world state. Add/Remove/Update Artist, Produce Music, Add/Remove Song, Promote Music, Per-Play Royalty, Update Income with tax authority
+* Participants: Record Label, Streaming services and Tax Authority
+* Assets: The song produced by the record label in collaboration with the artist. 
+* Transactions: These actions will change the world state. Add/Remove/Update Artist, Produce Music, Add/Remove Song, Promote Music, Per-Play Royalty, Update Income with tax authority
 
 ![Image of Transaction Model](https://user-images.githubusercontent.com/26054730/73071971-5b98d700-3eb4-11ea-8a4a-67ea8059ac82.png)
 
+In the figure below you will see the interaction with the client. The client is responsible to submit the transactions to the peers. In this case the client submits the played song to the record label. When the transaction is endorsed it will send to the transaction to the orderer, which make the transaction, and distribute to other peers. To end things up it will send events back to the client with the results of the transactions. 
 
-![Image of Data Model](https://user-images.githubusercontent.com/26054730/73063934-49ad3900-3ea0-11ea-81ab-6587c67c5c63.png)
+![Image of Client Interaction](https://user-images.githubusercontent.com/26054730/73063934-49ad3900-3ea0-11ea-81ab-6587c67c5c63.png)
 
 
 ## Logic:
