@@ -17,12 +17,18 @@ With a practical Byzantine Fault Tolerenace, the acceptance of transactions is d
 
 
 ## Data and transaction model
-How participants, assets and transactions are modelled?
 In the diagram below you see the process how an artist earn money from streaming services. For this use case we have created a private permissioned blockchain network that includes organizations such as Spotify (streaming service), record label and the tax authority. In this use case the song of an artist is the asset. A song contains several elements namely, the artist who wrote/sing the song and the record label that produces it. When a song is played it will invoke a smart contract that will distribute the earnings based on percentage to the record label and artist. It will also update your yearly income with the tax authority.  
 
 ![Image of Data Flow](https://user-images.githubusercontent.com/26054730/73069116-318fe680-3ead-11ea-9087-7f8caf6631e1.png)
 
-![Image of Transaction Model](https://user-images.githubusercontent.com/26054730/73063970-621d5380-3ea0-11ea-845b-ba758222221b.png)
+In this private permissioned blockchain network consist of three main components; the participants, assets and transactions. 
+Participants: Record Label, Streaming services and Tax Authority
+Assets: The song produced by the record label in collaboration with the artist. 
+Transactions: These actions will change the world state. Add/Remove/Update Artist, Produce Music, Add/Remove Song, Promote Music, Per-Play Royalty, Update Income with tax authority
+
+![Image of Transaction Model](https://user-images.githubusercontent.com/26054730/73071971-5b98d700-3eb4-11ea-8a4a-67ea8059ac82.png)
+
+
 ![Image of Data Model](https://user-images.githubusercontent.com/26054730/73063934-49ad3900-3ea0-11ea-81ab-6587c67c5c63.png)
 
 
