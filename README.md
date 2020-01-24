@@ -28,7 +28,7 @@ In this case we use music as an example. An artist makes a song. A record label 
 
 To add to this, another organization is added, which is the tax authorities. They also get a small amount of money of every streaming, depending on how much money an artist gets.
 
-- which events are generated?
+The following events are generated:
 * Add/remove/update artist
 * Add/remove song
 * Add streaming service
