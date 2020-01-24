@@ -19,7 +19,8 @@ With a practical Byzantine Fault Tolerenace, the acceptance of transactions is d
 ## Data and transaction model
 How participants, assets and transactions are modelled?
 ![Image of Transaction Model](https://user-images.githubusercontent.com/26054730/73063970-621d5380-3ea0-11ea-845b-ba758222221b.png)
-
+![Image of Data Model](https://user-images.githubusercontent.com/26054730/73063934-49ad3900-3ea0-11ea-81ab-6587c67c5c63.png)
+![Image of Data Flow](https://user-images.githubusercontent.com/26054730/73063860-14085000-3ea0-11ea-8d19-41caa3ccd03f.png)
 
 ## Logic:
 - What are the business rules?
