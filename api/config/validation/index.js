@@ -4,17 +4,21 @@ const fs = require('fs');
 const Ajv = require('ajv');
 const ajv = new Ajv();
 
-ajv.addSchema(moneyTransferschema, 'requestMoneyTransferSchema');
+let addRecordLabel = JSON.parse(fs.readFileSync('../../resources/schemas/addRecordLabel.json', 'utf8'));
+let addSinger = JSON.parse(fs.readFileSync('../../resources/schemas/addSinger.json', 'utf8'));
+let addSong = JSON.parse(fs.readFileSync('../../resources/schemas/addSong.json', 'utf8'));
+let addStreamingService = JSON.parse(fs.readFileSync('../../resources/schemas/addStreamingService.json', 'utf8'));
+let changeRecordLabel = JSON.parse(fs.readFileSync('../../resources/schemas/changeRecordLabel.json', 'utf8'));
+
+ajv.addSchema(addRecordLabel, 'addRecordLabel');
     
-ajv.addSchema(moneyResponseSchema, 'responseSchemaMoneyTransfer');
+ajv.addSchema(addSinger, 'addSinger');
     
-ajv.addSchema(ResponseSentBalanceSchema, 'responseSentBalances');
+ajv.addSchema(addSong, 'addSong');
     
-ajv.addSchema(reponseRegisterWinnerSchema, 'responseRegisterWinner');
+ajv.addSchema(addStreamingService, 'addStreamingService');
     
-ajv.addSchema(requestRegisterWinnerSchema, 'requestRegisterWinner');
-    
-ajv.addSchema(responseGetWinnerSchema, 'responseGetWinner');
+ajv.addSchema(changeRecordLabel, 'changeRecordLabel');
 
 module.exports = {
     ajv
