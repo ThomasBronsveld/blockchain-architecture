@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://bc4edu.com/schemas/requestSchemas/add-singer",
+    "type": "object",
+    "required": ["name","iban"],
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "recordLabel" : {
+            "type" : "string"
+        },
+        "iban": {
+            "type": "string"
+        },
+        "balance" : {
+            "type": "string"
+        }
+    }
+}

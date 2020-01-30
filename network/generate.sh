@@ -14,7 +14,7 @@ cat banner
 # removing previous configurations
 rm -Rf crypto-config
 rm -Rf channel-artifacts
-rm -Rf ../client/ccp
+rm -Rf ../api/ccp
 
 # generating crypto materials
 cryptogen generate --config=./crypto-config.yaml

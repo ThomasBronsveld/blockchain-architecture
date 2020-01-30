@@ -1,0 +1,11 @@
+{
+    "connectionProfile" : "cpp/connection-bc.json",
+    "appAdmin": "admin",
+    "appAdminSecret": "adminpw",
+    "orgMSPID": "bcMSP",
+    "caName": "ca_peerbc.com",
+    "gatewayDiscovery": {
+        "enabled": true,
+        "asLocalhost": true
+    }
+}

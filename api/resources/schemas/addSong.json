@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://bc4edu.com/schemas/requestSchemas/add-song",
+    "type": "object",
+    "required": ["name","singer","recordLabel"],
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "singer" : {
+            "type" : "string"
+        },
+        "recordLabel": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://bc4edu.com/schemas/requestSchemas/change-record-label",
+    "type": "object",
+    "required": ["name","recordLabel"],
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "recordLabel": {
+            "type": "string"
+        }
+    }
+}

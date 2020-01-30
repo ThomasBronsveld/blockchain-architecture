@@ -21,4 +21,4 @@ P3PORT=10051
 P4PORT=11051
 CAPORT=7054
 
-echo "$(json_ccp $ORG $P0PORT $P1PORT $P2PORT $P3PORT $P4PORT $CAPORT)" > ../client/ccp/connection-bc.json
+echo "$(json_ccp $ORG $P0PORT $P1PORT $P2PORT $P3PORT $P4PORT $CAPORT)" > ../api/ccp/connection-bc.json

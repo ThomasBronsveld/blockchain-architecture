@@ -25,9 +25,8 @@ class AccountContract extends Contract {
     }
 
 /*Changing record label for singer from record label a to record label b*/
-    async changeRecordLabel(ctx,,b,singer) {
+    async changeRecordLabel(ctx,b,singer) {
        singer.recordLabel = b;
-       }
     }
 
 /*Adding recordlabel with name and iban*/
