@@ -23,6 +23,6 @@ its guiding readme.md. Links for these can be found in the list above.
 ## Documentation
 
 For this course we were also required to provide documentation. This documentation can be found
-[here]()
+[here](https://github.com/ThomasBronsveld/blockchain-architecture/blob/master/documentation/README.md)
 
 
