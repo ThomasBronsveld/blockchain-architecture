@@ -2,6 +2,22 @@
 Repository for the course blockchain architecture of the Blockchain minor 2019 at the HvA.
 
 ## Use Case:
+Since the beginning of this century men is actively changing his way of storing data from analog to digital. Books and encyclopedias are disappearing and everything is stored on machines. This is happening everywhere and with everything. When did u last bought a CD for example. 
+The way songs and albums where stored changed a lot the past decades. From LP’s to CD’s to a file on your pc. This chance gave a lot of problems for the artists and their record labels. Most revenue came from sales of records and albums. Since we were able to store songs ourselves as files and share them online record labels lost a lot of sales. This started a period where lots of songs where shared without owners giving permission to this. Pirating digital content became a real problem and a lot of sites emerged that couldn’t be stopped from doing it. 
+
+Streaming services
+Instead of working against it companies started improving streaming services and new ones were founded. The rise of the streaming services is in line with the decrease of pirate sites and illegal downloads. Streaming services provide an easy way of listening to songs for a low amount of money. They obey the the rules and laws so the record labels and the artists get their share of royalties.
+This ended a lot of issues with the illegal activities of pirating but also brought new problems. Artist wouldn’t getting paid per sold album or song since there were so little. It will now depend on the amount of listeners per streaming service. Because their are so many streaming services and even more listeners this also gives a lot of problems for the record labels, organising their contracts with different streaming services per each artist. All this is very complicated to have properly organised and this where a Hyperledger Fabric network can really be used to its full potential.
+
+Network
+This network will provide a framework for record labels to easily use when setting up new contracts. this can be done with new artists or with new streamings services that wants to use their music. Whenever users of streaming services listen to a song, a transaction takes place in the blockchain. Als the production of songs and the promotion of songs are transaction that can take place in this network. 
+Beside the easily useable contracts that are provide this network also gives a form of privacy for its artist. Whenever a song is listen to an amount of money will be send to the artist of the song. The amount of money can be different per artists. This could depend on the popularity of an artist or on the amount of songs produced. This is private information and shouldn’t be shared by the artists or the record labels. Within this network its safely secured and only the artists that are involved gets to know the information. 
+Lastly the contracts can be set up in such a way the royalties get pay out instantly. Whenever a song a part of a song or an amount of songs is listen to its artist get his royalties paid out. This depends on the contracts that has been set up and could differ per artists.
+
+
+Future
+This systems takes care of the organisation of all the contracts within one record label. This can easily be expanded to more artists and for more record labels. The great thing about this network is that it is well organized. Personal data is carefully stored and it provides an pay out whenever songs are listen to. This takes away a lot of work for the record labels controlling and maintaining contracts as it now all goes automatically. Record labels itself also get their share of the royalties and it will only benefit their company. 
+since the beginning of the century a different chances and steps took place in storing data and automating system, this is one that should be taken next.
 
 
 ## Architecture Organization
