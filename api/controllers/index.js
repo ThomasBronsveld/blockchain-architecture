@@ -172,8 +172,8 @@ async function changeSong(req){
     }
 };
 
-async function getKey(name) {
-    logger.info("Retrieving key from network: " + name);
+async function getKey(req) {
+    logger.info("Retrieving key from network: " + req.name);
     //We need to build a check to see if the network is already running.
     try{
 

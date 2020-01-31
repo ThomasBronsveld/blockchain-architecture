@@ -1,16 +1,16 @@
-#The network
+## Setting up the network
 
-This network is build using the Hyperledger [Framework](https://hyperledger-fabric.readthedocs.io/en/latest/tutorials.html)
+This part of the repository constructs all the needed files and folders for the blockchain network. 
 
-##Setting it up
+Because we have the network online in a cloud environment, you won't have to do anything. 
 
-The actual blockchain network can be started from the 
-rest-api, therefore, all you have to do is generate the files required
-for the network to run. This can be done by running 
-`./generate.sh` in the network folder from your terminal. 
-This generates all the files you need to run the network. 
-The folder also comes with a `./start.sh` and `./down.sh` 
-that start and tear down the network. The `./down.sh` is 
-especially important because that wipes the blockchain network
-of the information it has. This is useful when you want 
-to start a clean new game. 
+However, if you want to run it locally you will have to do the following steps: 
+
+1. run `./generate.sh` in your terminal
+
+2. to start the network run `./start.sh` you might have to sudo it depending on your OS. 
+
+3. To bring the network down run: `./down.sh` don do this if you want to run it locally
+
+4. After this we go to the chaincode directory and follow the instructions there. 
+
