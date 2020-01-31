@@ -14,7 +14,7 @@ cat banner
 # removing previous configurations
 rm -Rf crypto-config
 rm -Rf channel-artifacts
-rm -Rf ../app/ccp
+rm -Rf ../api/ccp
 
 # generating crypto materials
 cryptogen generate --config=./crypto-config.yaml
@@ -31,7 +31,7 @@ mkdir channel-artifacts
 
 echo Generating Orderer Genesis block
 
-configtxgen -profile OneOrgOrdererGenesis -channelID $SYS_CHANNEL -outputBlock ./channel-artifacts/genesis.block
+configtxgen -profile ThreeOrgsOrdererGenesis -channelID $SYS_CHANNEL -outputBlock ./channel-artifacts/genesis.block
 
 if [ $? -ne 0 ]; then
    echo "Failed to generate orderer genesis block"
@@ -40,16 +40,16 @@ fi
 
 echo Generating channel configuration transaction
 
-configtxgen -profile OneOrgChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelID $CHANNEL_NAME
+configtxgen -profile ThreeOrgsChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelID $CHANNEL_NAME
 
 if [ $? -ne 0 ]; then
    echo "Failed to generate channel configuration transaction..."
    exit 1
 fi
 
-echo Generating anchor peer update for bcMSP
+#echo Generating anchor peer update for bcMSP
 
-configtxgen -profile OneOrgChannel -outputAnchorPeersUpdate ./channel-artifacts/bcMSPanchors.tx -channelID $CHANNEL_NAME -asOrg bcMSP
+configtxgen -profile ThreeOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org1MSP
 
 if [ $? -ne 0 ]; then
    echo "Failed to generate anchor peer update for bcMSP..."

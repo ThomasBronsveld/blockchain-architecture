@@ -11,7 +11,7 @@ function json_ccp {
         ccp-template.json 
 }
 
-mkdir ../api/ccp
+mkdir ../client/ccp
 
 ORG=bc
 P0PORT=7051

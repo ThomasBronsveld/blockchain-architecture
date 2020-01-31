@@ -1,5 +1,5 @@
 {
-    "name": "hva-network-${ORG}",
+    "name": "arch-network-${ORG}",
     "version": "1.0.0",
     "client": {
         "organization": "${ORG}",
@@ -15,36 +15,36 @@
         "${ORG}": {
             "mspid": "${ORG}MSP",
             "peers": [
-                "peer0.${ORG}.hva.nl",
-                "peer1.${ORG}.hva.nl",
-                "peer2.${ORG}.hva.nl",
-                "peer3.${ORG}.hva.nl",
-                "peer4.${ORG}.hva.nl"
+                "peer0.${ORG}.arch.nl",
+                "peer1.${ORG}.arch.nl",
+                "peer2.${ORG}.arch.nl",
+                "peer3.${ORG}.arch.nl",
+                "peer4.${ORG}.arch.nl"
             ],
             "certificateAuthorities": [
-                "ca.${ORG}.hva.nl"
+                "ca.${ORG}.arch.nl"
             ]
         }
     },
     "peers": {
-        "peer0.${ORG}.hva.nl": {
+        "peer0.${ORG}.arch.nl": {
             "url": "grpc://localhost:${P0PORT}"
         },
-        "peer1.${ORG}.hva.nl": {
+        "peer1.${ORG}.arch.nl": {
             "url": "grpc://localhost:${P1PORT}"
         },
-        "peer2.${ORG}.hva.nl": {
+        "peer2.${ORG}.arch.nl": {
             "url": "grpc://localhost:${P2PORT}"
         },    
-        "peer3.${ORG}.hva.nl": {
+        "peer3.${ORG}.arch.nl": {
             "url": "grpc://localhost:${P3PORT}"
         },
-        "peer4.${ORG}.hva.nl": {
+        "peer4.${ORG}.arch.nl": {
             "url": "grpc://localhost:${P4PORT}"
         }        
     },
     "certificateAuthorities": {
-        "ca.${ORG}.hva.nl": {
+        "ca.${ORG}.arch.nl": {
             "url": "http://localhost:${CAPORT}",
             "caName": "ca-${ORG}"
         }

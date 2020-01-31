@@ -16,7 +16,7 @@ const cpp = networkConfig.ccp;
 //  * @param {String} amount | amount of money to be transferred. 
 //  */
 async function addSingerToNetwork(name,recordLabel,iban,balance){
- 
+    console.log("test");
     try {
         const gateway = new Gateway();
     
@@ -35,7 +35,7 @@ async function addSingerToNetwork(name,recordLabel,iban,balance){
         // query the ledger
         const issueResponse = await contract.submitTransaction('addSinger', name, recordLabel, iban, balance);
         // process response
-        let rep = JSON.parse(issueResponse);
+        let rep = JSON.parse(issueResponse);        
         return rep;    
     } catch (error) {
         return error;

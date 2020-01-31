@@ -20,37 +20,37 @@ io.on('connection', function(socket) {
     
     socket.on('addSinger', async function(req) {
         console.log('test complete');
-        let response = await controllers.addSinger(req);
+        let response = await controllers.addSinger(JSON.parse(req));
         io.emit('singerAdded', response);
     });
 
     socket.on('addRecordLabel', async function(req) {
         console.log('test complete');
-        let response = await controllers.addRecordLabel(req);
+        let response = await controllers.addRecordLabel(JSON.parse(req));
         io.emit('recordLabelAdded', response);
     });
 
     socket.on('addStreamingService', async function(req) {
         console.log('test complete');
-        let response = await controllers.addStreamingService(req);
+        let response = await controllers.addStreamingService(JSON.parse(req));
         io.emit('streamingServiceAdded', response);
     });
 
     socket.on('addSong', async function(req) {
         console.log('test complete');
-        let response = await controllers.addSong(req);
+        let response = await controllers.addSong(JSON.parse(req));
         io.emit('songAdded', response);
     });
 
     socket.on('changeSong', async function(req) {
         console.log('test complete');
-        let response = await controllers.changeSong(req);
+        let response = await controllers.changeSong(JSON.parse(req));
         io.emit('songChanged', response);
     });
 
     socket.on('getKey', async function(req) {
         console.log('test complete');
-        let response = await controllers.getKey(req);
+        let response = await controllers.getKey(JSON.parse(req));
         io.emit('keyRetrieved', response);
     });
 

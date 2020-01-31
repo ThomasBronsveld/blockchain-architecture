@@ -8,18 +8,18 @@ const actionServices = require('../services/blockchain-network-services');
  * The return is a string so we parse it. 
  */
 function checkRunningContainers() {
-    dockerJS.ps(function(err, dockerContainers) {
-        if(err){
-            console.log(err);
-            logger.error(err);
-            return err;
-        }  
-        else {
-            console.log("here");
-            console.log(JSON.parse(dockerContainers));
-            return JSON.parse(dockerContainers).length == 0;
-        }
-      });  
+    return new Promise((resolve, reject) => {
+        dockerJS.ps(function(err, dockerContainers) {
+            if(err){
+                console.log(err);
+                logger.error(err);
+                reject(err);
+            }  
+            else {
+                resolve(JSON.parse(dockerContainers).length != 0);
+            }
+        });  
+    });
 }
 
 /**
@@ -30,7 +30,7 @@ function checkRunningContainers() {
  * @param {Response} res the response we're sending to one who calls the endpoint. 
  */
 async function addSinger(req){
-    
+    console.log(typeof req);
     let valid = ajv.validate('addSinger', req);
     if(!valid) {
         logger.error(req, ajv.errorsText());
@@ -38,10 +38,12 @@ async function addSinger(req){
     }
     logger.info("Adding singer with these variables: " + req.name + req.recordLabel + req.iban + req.balance);
     //We need to build a check to see if the network is already running.
+    let cont = await checkRunningContainers();
     try{
-
-        if(checkRunningContainers()) {
+        if(cont) {
+            console.log("hierzo");
             let response = await actionServices.addSingerToNetwork(req.name, req.recordLabel, req.iban, req.balance);
+            console.log(response);
             return response;
         }        
         throw new Error("The network is offline")

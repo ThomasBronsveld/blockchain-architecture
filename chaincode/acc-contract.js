@@ -22,6 +22,7 @@ class AccountContract extends Contract {
         }
         await ctx.stub.putState(name,Buffer.from(JSON.stringify(singer)));
         console.log('singer added with success');
+        return {succes: true}
     }
 
 /*Changing record label for singer from record label a to record label b*/
@@ -37,6 +38,7 @@ class AccountContract extends Contract {
         }
         await ctx.stub.putState(name,Buffer.from(JSON.stringify(recordLabel)));
         console.log('record label added with success');
+        return {succes: true}
     }
 
 /*Adding streaming service with name and iban*/
@@ -47,6 +49,7 @@ class AccountContract extends Contract {
         }
         await ctx.stub.putState(name,Buffer.from(JSON.stringify(streamingService)));
         console.log('streaming service added with success');
+        return {succes: true}
     }
 
 /*Adding song with name, singer and record label*/
@@ -58,6 +61,7 @@ class AccountContract extends Contract {
         }
         await ctx.stub.putState(name,Buffer.from(JSON.stringify(song)));
         console.log('song added with success');
+        return {succes: true}
     }
 
 /*Changing song from record label a to record label b*/
@@ -131,19 +135,6 @@ class AccountContract extends Contract {
                 return JSON.stringify(allResults);
             }
         }
-    }
-
-/* listening to song*/
-
-    async   listeningToSong(ctx,song,streamingService,quantity)   {
-        
-        let listeningSong = new listeningSong(streamingService,song);
-        let key = listeningSong.getType() + ":" + listeningSong.getOriginId()
-    }
-
-/* dividing royalties between singer and record label  */
-    async (ctx,singer, recordLabel,amount)  {
-        
     }
 }
 

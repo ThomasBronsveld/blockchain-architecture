@@ -7,148 +7,129 @@ version: '2'
 
 services:
 
-  orderer.arch.nl:
-    container_name: orderer.arch.nl
+  orderer.hva.nl:
+    container_name: orderer.hva.nl
     extends:
       file: peer-base.yaml
       service: orderer-base
     volumes:
         - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-        - ../crypto-config/ordererOrganizations/arch.nl/orderers/orderer.arch.nl/msp:/var/hyperledger/orderer/msp
-        - ../crypto-config/ordererOrganizations/arch.nl/orderers/orderer.arch.nl/tls/:/var/hyperledger/orderer/tls
-        - orderer.arch.nl:/var/hyperledger/production/orderer
+        - ../crypto-config/ordererOrganizations/hva.nl/orderers/orderer.hva.nl/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/hva.nl/orderers/orderer.hva.nl/tls/:/var/hyperledger/orderer/tls
+        - orderer.hva.nl:/var/hyperledger/production/orderer
     ports:
       - 7050:7050
 
-  peer0.org1.arch.nl:
-    container_name: peer0.org1.arch.nl
+  peer0.bc.hva.nl:
+    container_name: peer0.bc.hva.nl
     extends:
       file: peer-base.yaml
       service: peer-base
     environment:
-      - CORE_PEER_ID=peer0.org1.arch.nl
-      - CORE_PEER_ADDRESS=peer0.org1.arch.nl:7051
+      - CORE_PEER_ID=peer0.bc.hva.nl
+      - CORE_PEER_ADDRESS=peer0.bc.hva.nl:7051
       - CORE_PEER_LISTENADDRESS=0.0.0.0:7051
-      - CORE_PEER_CHAINCODEADDRESS=peer0.org1.arch.nl:7052
-      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org1.arch.nl:8051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.arch.nl:7051
-      - CORE_PEER_LOCALMSPID=Org1MSP
+      # - CORE_PEER_CHAINCODEADDRESS=peer0.bc.hva.nl:7052
+      # - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
+      # - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.bc.hva.nl:8051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.bc.hva.nl:7051
+      - CORE_PEER_LOCALMSPID=bcMSP
     volumes:
         - /var/run/:/host/var/run/
-        - ../crypto-config/peerOrganizations/org1.arch.nl/peers/peer0.org1.arch.nl/msp:/etc/hyperledger/fabric/msp
-        - ../crypto-config/peerOrganizations/org1.arch.nl/peers/peer0.org1.arch.nl/tls:/etc/hyperledger/fabric/tls
-        - peer0.org1.arch.nl:/var/hyperledger/production
+        - ../crypto-config/peerOrganizations/bc.hva.nl/peers/peer0.bc.hva.nl/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/bc.hva.nl/peers/peer0.bc.hva.nl/tls:/etc/hyperledger/fabric/tls
+        - peer0.bc.hva.nl:/var/hyperledger/production
     ports:
       - 7051:7051
+      - 7053:7053
 
-  peer1.org1.arch.nl:
-    container_name: peer1.org1.arch.nl
+  peer1.bc.hva.nl:
+    container_name: peer1.bc.hva.nl
     extends:
       file: peer-base.yaml
       service: peer-base
     environment:
-      - CORE_PEER_ID=peer1.org1.arch.nl
-      - CORE_PEER_ADDRESS=peer1.org1.arch.nl:8051
+      - CORE_PEER_ID=peer1.bc.hva.nl
+      - CORE_PEER_ADDRESS=peer1.bc.hva.nl:8051
       - CORE_PEER_LISTENADDRESS=0.0.0.0:8051
-      - CORE_PEER_CHAINCODEADDRESS=peer1.org1.arch.nl:8052
-      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:8052
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org1.arch.nl:8051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.arch.nl:7051
-      - CORE_PEER_LOCALMSPID=Org1MSP
+      # - CORE_PEER_CHAINCODEADDRESS=peer1.bc.hva.nl:8052
+      # - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:8052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.bc.hva.nl:8051
+      # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.bc.hva.nl:7051
+      - CORE_PEER_LOCALMSPID=bcMSP
     volumes:
         - /var/run/:/host/var/run/
-        - ../crypto-config/peerOrganizations/org1.arch.nl/peers/peer1.org1.arch.nl/msp:/etc/hyperledger/fabric/msp
-        - ../crypto-config/peerOrganizations/org1.arch.nl/peers/peer1.org1.arch.nl/tls:/etc/hyperledger/fabric/tls
-        - peer1.org1.arch.nl:/var/hyperledger/production
-
+        - ../crypto-config/peerOrganizations/bc.hva.nl/peers/peer1.bc.hva.nl/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/bc.hva.nl/peers/peer1.bc.hva.nl/tls:/etc/hyperledger/fabric/tls
+        - peer1.bc.hva.nl:/var/hyperledger/production
     ports:
       - 8051:8051
+      - 8053:8053
 
-  peer0.org2.arch.nl:
-    container_name: peer0.org2.arch.nl
-    extends:
-      file: peer-base.yaml
-      service: peer-base
-    environment:
-      - CORE_PEER_ID=peer0.org2.arch.nl
-      - CORE_PEER_ADDRESS=peer0.org2.arch.nl:9051
-      - CORE_PEER_LISTENADDRESS=0.0.0.0:9051
-      - CORE_PEER_CHAINCODEADDRESS=peer0.org2.arch.nl:9052
-      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:9052
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org2.arch.nl:9051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.arch.nl:7051
-      - CORE_PEER_LOCALMSPID=Org2MSP
-    volumes:
-        - /var/run/:/host/var/run/
-        - ../crypto-config/peerOrganizations/org2.arch.nl/peers/peer0.org2.arch.nl/msp:/etc/hyperledger/fabric/msp
-        - ../crypto-config/peerOrganizations/org2.arch.nl/peers/peer0.org2.arch.nl/tls:/etc/hyperledger/fabric/tls
-        - peer0.org2.arch.nl:/var/hyperledger/production
-    ports:
-      - 9051:9051
+  # peer2.bc.hva.nl:
+  #   container_name: peer2.bc.hva.nl
+  #   extends:
+  #     file: peer-base.yaml
+  #     service: peer-base
+  #   environment:
+  #     - CORE_PEER_ID=peer2.bc.hva.nl
+  #     - CORE_PEER_ADDRESS=peer2.bc.hva.nl:9051
+  #     - CORE_PEER_LISTENADDRESS=0.0.0.0:9051
+  #     # - CORE_PEER_CHAINCODEADDRESS=peer2.bc.hva.nl:9052
+  #     # - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:9052
+  #     - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer2.bc.hva.nl:9051
+  #     # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.bc.hva.nl:7051
+  #     - CORE_PEER_LOCALMSPID=bcMSP
+  #   volumes:
+  #       - /var/run/:/host/var/run/
+  #       - ../crypto-config/peerOrganizations/bc.hva.nl/peers/peer2.bc.hva.nl/msp:/etc/hyperledger/fabric/msp
+  #       - ../crypto-config/peerOrganizations/bc.hva.nl/peers/peer2.bc.hva.nl/tls:/etc/hyperledger/fabric/tls
+  #       - peer2.bc.hva.nl:/var/hyperledger/production
+  #   ports:
+  #     - 9051:9051
 
-  peer1.org2.arch.nl:
-    container_name: peer1.org2.arch.nl
-    extends:
-      file: peer-base.yaml
-      service: peer-base
-    environment:
-      - CORE_PEER_ID=peer1.org2.arch.nl
-      - CORE_PEER_ADDRESS=peer1.org2.arch.nl:10051
-      - CORE_PEER_LISTENADDRESS=0.0.0.0:10051
-      - CORE_PEER_CHAINCODEADDRESS=peer1.org2.arch.nl:10052
-      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:10052
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org2.arch.nl:10051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.arch.nl:9051
-      - CORE_PEER_LOCALMSPID=Org2MSP
-    volumes:
-        - /var/run/:/host/var/run/
-        - ../crypto-config/peerOrganizations/org2.arch.nl/peers/peer1.org2.arch.nl/msp:/etc/hyperledger/fabric/msp
-        - ../crypto-config/peerOrganizations/org2.arch.nl/peers/peer1.org2.arch.nl/tls:/etc/hyperledger/fabric/tls
-        - peer1.org2.arch.nl:/var/hyperledger/production
-    ports:
-      - 10051:10051
+  # peer3.bc.hva.nl:
+  #   container_name: peer3.bc.hva.nl
+  #   extends:
+  #     file: peer-base.yaml
+  #     service: peer-base
+  #   environment:
+  #     - CORE_PEER_ID=peer3.bc.hva.nl
+  #     - CORE_PEER_ADDRESS=peer3.bc.hva.nl:10051
+  #     - CORE_PEER_LISTENADDRESS=0.0.0.0:10051
+  #     # - CORE_PEER_CHAINCODEADDRESS=peer3.bc.hva.nl:10052
+  #     # - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:10052
+  #     - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer3.bc.hva.nl:10051
+  #     # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.bc.hva.nl:7051
+  #     - CORE_PEER_LOCALMSPID=bcMSP
+  #   volumes:
+  #       - /var/run/:/host/var/run/
+  #       - ../crypto-config/peerOrganizations/bc.hva.nl/peers/peer3.bc.hva.nl/msp:/etc/hyperledger/fabric/msp
+  #       - ../crypto-config/peerOrganizations/bc.hva.nl/peers/peer3.bc.hva.nl/tls:/etc/hyperledger/fabric/tls
+  #       - peer3.bc.hva.nl:/var/hyperledger/production
+  #   ports:
+  #     - 10051:10051
+  #     - 10053:10053
 
-  peer0.org3.arch.nl:
-    container_name: peer0.org3.arch.nl
-    extends:
-      file: peer-base.yaml
-      service: peer-base
-    environment:
-      - CORE_PEER_ID=peer0.org3.arch.nl
-      - CORE_PEER_ADDRESS=peer0.org3.arch.nl:11051
-      - CORE_PEER_LISTENADDRESS=0.0.0.0:11051
-      - CORE_PEER_CHAINCODEADDRESS=peer1.org2.arch.nl:11052
-      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:11052
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org2.arch.nl:11051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org3.arch.nl:12051
-      - CORE_PEER_LOCALMSPID=Org3MSP
-    volumes:
-        - /var/run/:/host/var/run/
-        - ../crypto-config/peerOrganizations/org3.arch.nl/peers/peer0.org3.arch.nl/msp:/etc/hyperledger/fabric/msp
-        - ../crypto-config/peerOrganizations/org3.arch.nl/peers/peer0.org3.arch.nl/tls:/etc/hyperledger/fabric/tls
-        - peer0.org3.arch.nl:/var/hyperledger/production
-    ports:
-      - 11051:11051
-      
-  peer1.org3.arch.nl:
-    container_name: peer1.org3.arch.nl
-    extends:
-      file: peer-base.yaml
-      service: peer-base
-    environment:
-      - CORE_PEER_ID=peer1.org3.arch.nl
-      - CORE_PEER_ADDRESS=peer1.org3.arch.nl:12051
-      - CORE_PEER_LISTENADDRESS=0.0.0.0:12051
-      - CORE_PEER_CHAINCODEADDRESS=peer1.org3.arch.nl:12052
-      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:12052
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org3.arch.nl:12051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org3.arch.nl:11051
-      - CORE_PEER_LOCALMSPID=Org3MSP
-    volumes:
-        - /var/run/:/host/var/run/
-        - ../crypto-config/peerOrganizations/org3.arch.nl/peers/peer1.org3.arch.nl/msp:/etc/hyperledger/fabric/msp
-        - ../crypto-config/peerOrganizations/org3.arch.nl/peers/peer1.org3.arch.nl/tls:/etc/hyperledger/fabric/tls
-        - peer1.org3.arch.nl:/var/hyperledger/production
-    ports:
-      - 12051:12051
+  # peer4.bc.hva.nl:
+  #   container_name: peer4.bc.hva.nl
+  #   extends:
+  #     file: peer-base.yaml
+  #     service: peer-base
+  #   environment:
+  #     - CORE_PEER_ID=peer4.bc.hva.nl
+  #     - CORE_PEER_ADDRESS=peer4.bc.hva.nl:11051
+  #     - CORE_PEER_LISTENADDRESS=0.0.0.0:11051
+  #     # - CORE_PEER_CHAINCODEADDRESS=peer4.bc.hva.nl:11052
+  #     # - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:11052
+  #     - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer4.bc.hva.nl:11051
+  #     # - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.bc.hva.nl:7051
+  #     - CORE_PEER_LOCALMSPID=bcMSP
+  #   volumes:
+  #       - /var/run/:/host/var/run/
+  #       - ../crypto-config/peerOrganizations/bc.hva.nl/peers/peer4.bc.hva.nl/msp:/etc/hyperledger/fabric/msp
+  #       - ../crypto-config/peerOrganizations/bc.hva.nl/peers/peer4.bc.hva.nl/tls:/etc/hyperledger/fabric/tls
+  #       - peer4.bc.hva.nl:/var/hyperledger/production
+  #   ports:
+  #     - 11051:11051   
+  #     - 11053:11053                  

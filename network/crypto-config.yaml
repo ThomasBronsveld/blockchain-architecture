@@ -1,31 +1,15 @@
 OrdererOrgs:
   - Name: Orderer
-    Domain: arch.nl
+    Domain: hva.nl
     EnableNodeOUs: true
     Specs:
       - Hostname: orderer
 
 PeerOrgs:
-  - Name: Org1
-    Domain: org1.arch.nl
+  - Name: bc
+    Domain: bc.hva.nl
     EnableNodeOUs: true
     Template:
-      Count: 2
-    Users:
-      Count: 1
-
-  - Name: Org2
-    Domain: org2.arch.nl
-    EnableNodeOUs: true
-    Template:
-      Count: 2
-    Users:
-      Count: 1
-
-  - Name: Org3
-    Domain: org3.arch.nl
-    EnableNodeOUs: true
-    Template:
-      Count: 2
+      Count: 5
     Users:
       Count: 1

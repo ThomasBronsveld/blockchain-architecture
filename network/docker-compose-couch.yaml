@@ -6,31 +6,24 @@
 version: '2'
 
 networks:
-  archnet:
+  hvanet:
 
 services:
   couchdb0:
     container_name: couchdb0
     image: hyperledger/fabric-couchdb
-    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
-    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
     environment:
       - COUCHDB_USER=
       - COUCHDB_PASSWORD=
-    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
-    # for example map it to utilize Fauxton User Interface in dev environments.
     ports:
       - "5984:5984"
     networks:
-      - archnet
+      - hvanet
 
-  peer0.org1.arch.nl:
+  peer0.bc.hva.nl:
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb0:5984
-      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
-      # provide the credentials for ledger to connect to CouchDB.  The username and password must
-      # match the username and password set for the associated CouchDB.
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
     depends_on:
@@ -39,149 +32,79 @@ services:
   couchdb1:
     container_name: couchdb1
     image: hyperledger/fabric-couchdb
-    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
-    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
     environment:
       - COUCHDB_USER=
       - COUCHDB_PASSWORD=
-    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
-    # for example map it to utilize Fauxton User Interface in dev environments.
     ports:
       - "6984:5984"
     networks:
-      - archnet
+      - hvanet
 
-  peer1.org1.arch.nl:
+  peer1.bc.hva.nl:
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1:5984
-      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
-      # provide the credentials for ledger to connect to CouchDB.  The username and password must
-      # match the username and password set for the associated CouchDB.
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
     depends_on:
       - couchdb1
 
-  couchdb2:
-    container_name: couchdb2
-    image: hyperledger/fabric-couchdb
-    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
-    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
-    environment:
-      - COUCHDB_USER=
-      - COUCHDB_PASSWORD=
-    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
-    # for example map it to utilize Fauxton User Interface in dev environments.
-    ports:
-      - "7984:5984"
-    networks:
-      - archnet
+  # couchdb2:
+  #   container_name: couchdb2
+  #   image: hyperledger/fabric-couchdb
+  #   environment:
+  #     - COUCHDB_USER=
+  #     - COUCHDB_PASSWORD=
+  #   ports:
+  #     - "7984:5984"
+  #   networks:
+  #     - hvanet
 
-  peer0.org2.arch.nl:
-    environment:
-      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb2:5984
-      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
-      # provide the credentials for ledger to connect to CouchDB.  The username and password must
-      # match the username and password set for the associated CouchDB.
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
-    depends_on:
-      - couchdb2
+  # peer2.bc.hva.nl:
+  #   environment:
+  #     - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb2:5984
+  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+  #   depends_on:
+  #     - couchdb2
 
-  couchdb3:
-    container_name: couchdb3
-    image: hyperledger/fabric-couchdb
-    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
-    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
-    environment:
-      - COUCHDB_USER=
-      - COUCHDB_PASSWORD=
-    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
-    # for example map it to utilize Fauxton User Interface in dev environments.
-    ports:
-      - "8984:5984"
-    networks:
-      - archnet
+  # couchdb3:
+  #   container_name: couchdb3
+  #   image: hyperledger/fabric-couchdb
+  #   environment:
+  #     - COUCHDB_USER=
+  #     - COUCHDB_PASSWORD=
+  #   ports:
+  #     - "8984:5984"
+  #   networks:
+  #     - hvanet
 
-  peer1.org2.arch.nl:
-    environment:
-      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb3:5984
-      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
-      # provide the credentials for ledger to connect to CouchDB.  The username and password must
-      # match the username and password set for the associated CouchDB.
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
-    depends_on:
-      - couchdb3
+  # peer3.bc.hva.nl:
+  #   environment:
+  #     - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb3:5984
+  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+  #   depends_on:
+  #     - couchdb2            
 
-  couchdb4:
-    container_name: couchdb4
-    image: hyperledger/fabric-couchdb
-    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
-    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
-    environment:
-      - COUCHDB_USER=
-      - COUCHDB_PASSWORD=
-    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
-    # for example map it to utilize Fauxton User Interface in dev environments.
-    ports:
-      - "9984:5984"         #geen idee welke ports
-    networks:
-      - archnet
+  # couchdb4:
+  #   container_name: couchdb4
+  #   image: hyperledger/fabric-couchdb
+  #   environment:
+  #     - COUCHDB_USER=
+  #     - COUCHDB_PASSWORD=
+  #   ports:
+  #     - "9984:5984"
+  #   networks:
+  #     - hvanet
 
-  peer0.org3.arch.nl:
-    environment:
-      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb0:5984
-      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
-      # provide the credentials for ledger to connect to CouchDB.  The username and password must
-      # match the username and password set for the associated CouchDB.
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
-    depends_on:
-      - couchdb4
-
-  couchdb5:
-    container_name: couchdb5
-    image: hyperledger/fabric-couchdb
-    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
-    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
-    environment:
-      - COUCHDB_USER=
-      - COUCHDB_PASSWORD=
-    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
-    # for example map it to utilize Fauxton User Interface in dev environments.
-    ports:
-      - "10984:5984"
-    networks:
-      - archnet
-
-  peer1.org3.arch.nl:
-    environment:
-      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1:5984
-      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
-      # provide the credentials for ledger to connect to CouchDB.  The username and password must
-      # match the username and password set for the associated CouchDB.
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
-    depends_on:
-      - couchdb5
-
-  couchdb6:
-    container_name: couchdb6
-    image: hyperledger/fabric-couchdb
-    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
-    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
-    environment:
-      - COUCHDB_USER=
-      - COUCHDB_PASSWORD=
-    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
-    # for example map it to utilize Fauxton User Interface in dev environments.
-    ports:
-      - "11984:5984"
-    networks:
-      - archnet
+  # peer4.bc.hva.nl:
+  #   environment:
+  #     - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb4:5984
+  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+  #   depends_on:
+  #     - couchdb4

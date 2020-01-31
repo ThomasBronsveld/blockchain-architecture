@@ -6,76 +6,65 @@
 version: '2'
 
 volumes:
-  orderer.arch.nl:
-  peer0.org1.arch.nl:
-  peer1.org1.arch.nl:
-  peer0.org2.arch.nl:
-  peer1.org2.arch.nl:
-  peer0.org3.arch.nl:
-  peer1.org3.arch.nl:
-  
+  orderer.hva.nl:
+  peer0.bc.hva.nl:
+  peer1.bc.hva.nl:
+  # peer2.bc.hva.nl:
+  # peer3.bc.hva.nl:
+  # peer4.bc.hva.nl:    
 
 networks:
-  Archnet:
+  hvanet:
 
 services:
 
-  orderer.arch.nl:
+  orderer.hva.nl:
     extends:
       file:   base/docker-compose-base.yaml
-      service: orderer.arch.nl
-    container_name: orderer.arch.nl
+      service: orderer.hva.nl
+    container_name: orderer.hva.nl
     networks:
-      - archnet
+      - hvanet
 
-  peer0.org1.arch.nl:
-    container_name: peer0.org1.arch.nl
+  peer0.bc.hva.nl:
+    container_name: peer0.bc.hva.nl
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer0.org1.arch.nl
+      service: peer0.bc.hva.nl
     networks:
-      - archnet
+      - hvanet
 
-  peer1.org1.arch.nl:
-    container_name: peer1.org1.arch.nl
+  peer1.bc.hva.nl:
+    container_name: peer1.bc.hva.nl
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer1.org1.arch.nl
+      service: peer1.bc.hva.nl
     networks:
-      - archnet
+      - hvanet
 
-  peer0.org2.arch.nl:
-    container_name: peer0.org2.arch.nl
-    extends:
-      file:  base/docker-compose-base.yaml
-      service: peer0.org2.arch.nl
-    networks:
-      - archnet
+  # peer2.bc.hva.nl:
+  #   container_name: peer2.bc.hva.nl
+  #   extends:
+  #     file:  base/docker-compose-base.yaml
+  #     service: peer2.bc.hva.nl
+  #   networks:
+  #     - hvanet
 
-  peer1.org2.arch.nl:
-    container_name: peer1.org2.arch.nl
-    extends:
-      file:  base/docker-compose-base.yaml
-      service: peer1.org2.arch.nl
-    networks:
-      - archnet
-     
-  peer0.org3.arch.nl:
-    container_name: peer0.org3.arch.nl
-    extends:
-      file:  base/docker-compose-base.yaml
-      service: peer0.org3.arch.nl
-    networks:
-      - archnet
-   
-  peer1.org3.arch.nl:
-    container_name: peer1.org3.arch.nl
-    extends:
-      file:  base/docker-compose-base.yaml
-      service: peer1.org3.arch.nl
-    networks:
-      - archnet
-      
+  # peer3.bc.hva.nl:
+  #   container_name: peer3.bc.hva.nl
+  #   extends:
+  #     file:  base/docker-compose-base.yaml
+  #     service: peer3.bc.hva.nl
+  #   networks:
+  #     - hvanet
+
+  # peer4.bc.hva.nl:
+  #   container_name: peer4.bc.hva.nl
+  #   extends:
+  #     file:  base/docker-compose-base.yaml
+  #     service: peer4.bc.hva.nl
+  #   networks:
+  #     - hvanet
 
   cli:
     container_name: cli
@@ -86,26 +75,26 @@ services:
       - SYS_CHANNEL=$SYS_CHANNEL
       - GOPATH=/opt/gopath
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      #- FABRIC_LOGGING_SPEC=DEBUG
       - FABRIC_LOGGING_SPEC=INFO
       - CORE_PEER_ID=cli
-      - CORE_PEER_ADDRESS=peer0.org1.arch.nl:7051
-      - CORE_PEER_LOCALMSPID=Org1MSP
-      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.arch.nl/users/Admin@org1.arch.nl/msp
+      - CORE_PEER_ADDRESS=peer0.bc.hva.nl:7051
+      - CORE_PEER_LOCALMSPID=bcMSP
+      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/bc.hva.nl/users/Admin@bc.hva.nl/msp
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
         - /var/run/:/host/var/run/
-        - ./../contract:/opt/gopath/src/github.com/chaincode
+        - ./../chaincode:/opt/gopath/src/github.com/chaincode
         - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
         - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
         - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
     depends_on:
-      - orderer.arch.nl
-      - peer0.org1.arch.nl
-      - peer1.org1.arch.nl
-      - peer0.org2.arch.nl
-      - peer1.org2.arch.nl
-      - peer0.org3.arch.nl
-      - peer1.org3.arch.nl
+      - orderer.hva.nl
+      - peer0.bc.hva.nl
+      - peer1.bc.hva.nl
+      # - peer2.bc.hva.nl
+      # - peer3.bc.hva.nl
+      # - peer4.bc.hva.nl
     networks:
-      - archnet
+      - hvanet
