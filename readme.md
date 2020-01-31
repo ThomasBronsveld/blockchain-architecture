@@ -7,13 +7,13 @@ with it through a REST-API.
 
 Our blockchain architecture consists of the following components: 
  
-Our [own]() [Hyperledger Fabric network]()
+Our [own](https://github.com/ThomasBronsveld/blockchain-architecture/blob/master/network/README.md) [Hyperledger Fabric network](https://github.com/hyperledger/fabric)
 
-Our [rest-api]()
+Our [rest-api](https://github.com/ThomasBronsveld/blockchain-architecture/blob/master/api/README.md)
 
-Our [front-end]()
+Our [front-end](https://github.com/ThomasBronsveld/blockchain-architecture/blob/master/client/README.md)
 
-The [chaincode]()
+The [chaincode](https://github.com/ThomasBronsveld/blockchain-architecture/blob/master/chaincode/README.md)
 
 ## Setup
 
