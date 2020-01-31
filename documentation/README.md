@@ -5,10 +5,8 @@ Repository for the course blockchain architecture of the Blockchain minor 2019 a
 
 
 ## Architecture Organization
-How many peers and organisations?
 
-
-
+Our network consists of a single organisation with two peers. We've tried to make it work with three organisations and two peers each, however, we ran into an issue that we couldn't solve in time for this deadline. For the next deadline we intend to upgrade the network into a more diverse network with the three organisations and two peers each. 
 
 ## How consensus works?
 The consensus mechanism in our blockchain network is based on the Byzantine fault tolerance. As the blockchain is decentralized, there needs a way to see when a new block or transaction is approved.
@@ -49,8 +47,8 @@ The following events are generated:
 
 
 ## Integration
-How the blockchain network interact with external systems (calls and events)?
 
+We made use of [socket-io](https://socket.io/) to listen to events once people are connected to our REST-API. We also emit some events so that we can update the users with the result of their launched event. 
 
 ## Network hosting
 During this project we will be hosting our Hyperledger on Digital Ocean. We have chosen for this cloud-based solution, because it was not possible to configure Hyperledger on every laptop. Therefore, we have chosen for this option so everyone can access the Hyperledger and work on it. For the configuration of our Digital Ocean environment we have followed this [guide](https://medium.com/@eplt/5-minutes-to-install-hyperledger-fabric-v1-3-on-ubuntu-18-04-digitalocean-a06541a2ba45)
@@ -60,8 +58,10 @@ The key selling points of Digital Ocean are: simplicity, pricing, and high-perfo
 
 
 ## Privacy and security
-Authentication and Authorisation
 
+For this deadline we decided to just get a working proof of concept going, so we don't much in the terms of authorization and authentication. We have setup a request validation that checks the contents of the request. 
+
+We intend to update this part to SSI in the near future. 
 
 ## Individual contribution table:
 | Subject:	                          | Person:    |
