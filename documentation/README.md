@@ -53,8 +53,8 @@ How the blockchain network interact with external systems (calls and events)?
 
 
 ## Network hosting
-During this project we will be hosting our Hyperledger on Digital Ocean. We have chosen for this cloud-based solution, because it was not possible to configure Hyperledger on every laptop. Therefore, we have chosen for this option so everyone can access the Hyperledger and work on it. For the configuration of our Digital Ocean environment we have followed this guide (see link) 
-<https://medium.com/@eplt/5-minutes-to-install-hyperledger-fabric-v1-3-on-ubuntu-18-04-digitalocean-a06541a2ba45>
+During this project we will be hosting our Hyperledger on Digital Ocean. We have chosen for this cloud-based solution, because it was not possible to configure Hyperledger on every laptop. Therefore, we have chosen for this option so everyone can access the Hyperledger and work on it. For the configuration of our Digital Ocean environment we have followed this [guide](https://medium.com/@eplt/5-minutes-to-install-hyperledger-fabric-v1-3-on-ubuntu-18-04-digitalocean-a06541a2ba45)
+
 
 The key selling points of Digital Ocean are: simplicity, pricing, and high-performance virtual servers. It provides a quick and easy setup for small developers and has a user-friendly, clean interface with features with one-click deployments. It is also known for providing high-performance servers. All their hard disks are SSD and got an incredible start-up time of only 55 sec. You can also choose which datacenter you want to use. Digital Ocean got 9 data centers positioned in San Francisco, Singapore, Amsterdam, New York and London. In this case we of course choose for the datacenter in Amsterdam, so we can ensure optimal connection speed.  
 

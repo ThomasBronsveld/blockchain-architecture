@@ -65,38 +65,43 @@ class AccountContract extends Contract {
     async changeSong(ctx,name,b)  {
         song.recordLabel = b;
     }
-        
-/*Getting singer*/
-    async getSinger(ctx,name) {
-        console.info('querying for name: ' + name);
+
+    async getKey(ctx, name) {
         let returnAsBytes = await ctx.stub.getState(name);
         let result = JSON.parse(returnAsBytes);
         return JSON.stringify(result);
     }
+// /*Getting singer*/
+//     async getSinger(ctx,name) {
+//         console.info('querying for name: ' + name);
+//         let returnAsBytes = await ctx.stub.getState(name);
+//         let result = JSON.parse(returnAsBytes);
+//         return JSON.stringify(result);
+//     }
 
-/*Getting record label*/
-    async getRecordLabel(ctx,name)  {
-        console.info('querying for record label: ' + recordLabel);
-        let returnAsBytes = await ctx.stub.getState(recordLabel);
-        let result = JSON.parse(returnAsBytes);
-        return JSON.stringify(result);
-    }
+// /*Getting record label*/
+//     async getRecordLabel(ctx,name)  {
+//         console.info('querying for record label: ' + recordLabel);
+//         let returnAsBytes = await ctx.stub.getState(recordLabel);
+//         let result = JSON.parse(returnAsBytes);
+//         return JSON.stringify(result);
+//     }
 
-/*Getting streaming service*/
-    async getStreamingService(ctx,name) {
-        console.info('querying for record label: ' + streamingService);
-        let returnAsBytes = await ctx.stub.getState(streamingService);
-        let result = JSON.parse(returnAsBytes);
-        return JSON.stringify(result);
-    }
+// /*Getting streaming service*/
+//     async getStreamingService(ctx,name) {
+//         console.info('querying for record label: ' + streamingService);
+//         let returnAsBytes = await ctx.stub.getState(streamingService);
+//         let result = JSON.parse(returnAsBytes);
+//         return JSON.stringify(result);
+//     }
 
-/*Getting song*/
-    async getSong(ctx,name) {
-        console.info('querying for song: ' + song);
-        let returnAsBytes = await ctx.stub.getState(song);
-        let result = JSON.parse(returnAsBytes);
-        return JSON.stringify(result);
-    }
+// /*Getting song*/
+//     async getSong(ctx,name) {
+//         console.info('querying for song: ' + song);
+//         let returnAsBytes = await ctx.stub.getState(song);
+//         let result = JSON.parse(returnAsBytes);
+//         return JSON.stringify(result);
+//     }
 
 /*niets aangepast. Hoe zet ik de variable erin van singer, record label etc.*/
     async getAllAccounts(ctx) {
