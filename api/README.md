@@ -6,4 +6,4 @@ This REST-API makes use of [socket-io](https://socket.io/) as its calling techni
 
 ## Setup
 
-To get the rest-api running locally, all you have to do is `$ npm install` and then run `$ npm run prod`
+To get the rest-api running locally, all you have to do is `$ npm install` and then run `$ npm start`
